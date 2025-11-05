@@ -15,11 +15,11 @@ const CartItem = ({ onContinueShopping }) => {
         const cost = parseFloat(item.cost.substring(1));
         total += cost * quant;
     });
-    return total;
+    return total;    
   };
 
   const handleContinueShopping = (e) => {
-   onContinueShopping(e);
+    onContinueShopping(e);
   };
   const handleCheckoutShopping = (e) => {
     alert('Functionality to be added for future reference');
@@ -39,7 +39,7 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleRemove = (item) => {
-    dispatch(removeItem(item));
+    dispatch(removeItem(item.name));
   };
 
   // Calculate total cost based on quantity for an item
@@ -52,7 +52,7 @@ const CartItem = ({ onContinueShopping }) => {
 
   return (
     <div className="cart-container">
-      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount(cart)}</h2>
       <div>
         {cart.map(item => (
           <div className="cart-item" key={item.name}>
